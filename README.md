@@ -1,2 +1,3 @@
 # CSCI2467_Homework
-Location of homework and test code to get later
+Used to test all code in the cook environment
+
