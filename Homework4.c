@@ -68,14 +68,17 @@ int main(int argc, char **argv)
 			perror("getpwuid_r error");
 			exit(5);
 		}
+		char *usrname = usrn.pw_name;
+		printf("user: %s\t", usrname);
 		//returns 0 if successful or no file with given grpid
 		//so any error value will result in statement being true
 		if(getgrgid_r(mystat.st_gid, &grpn, buf, sizeof buf, &grpnp)){
 			perror("getgrgid_r error");
 			exit(6);
 		}
-
-		printf("user: %s\tgroupuser: %s\tmode: %llo\t, name: %s %s\n", usrn.pw_name, grpn.gr_name, (long long) mystat.st_mode,
+		//If I use this print statement, the user text is garbage. Why is that so? Is the usrn.pw_name being reused in the getgrgid method?
+		//printf("user: %s\tgroupuser: %s\tmode: %llo\tname: %s %s\n", usrname, grpn.gr_name, (long long) mystat.st_mode,d.d_name, dir);
+		printf("groupuser: %s\tmode: %llo\tname: %s %s\n", grpn.gr_name, (long long) mystat.st_mode,
 				d.d_name, dir);
 	}
 	return 0;
