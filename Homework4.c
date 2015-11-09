@@ -38,6 +38,8 @@ int main(int argc, char **argv)
 		if (!result) {
 			break;
 		}
+		if(d.d_name == '.');
+			printf("test.");
 
 		struct stat mystat;	/* must declare the struct itself, not just
 										a pointer to it, so the memory gets 
@@ -77,8 +79,9 @@ int main(int argc, char **argv)
 			exit(6);
 		}
 		//If I use this print statement, the user text is garbage. Why is that so? Is the usrn.pw_name being reused in the getgrgid method?
+		//It is the same if I instead refer directly to user as usern.pw_name(obviously)
 		//printf("user: %s\tgroupuser: %s\tmode: %llo\tname: %s %s\n", usrname, grpn.gr_name, (long long) mystat.st_mode,d.d_name, dir);
-		printf("groupuser: %s\tmode: %llo\tname: %s %s\n", grpn.gr_name, (long long) mystat.st_mode,
+		printf("group: %s\tmode: %llo\tname: %s %s\n", grpn.gr_name, (long long) mystat.st_mode,
 				d.d_name, dir);
 	}
 	return 0;
