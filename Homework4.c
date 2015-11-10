@@ -1,8 +1,13 @@
+//I couldn't get around to the bonus =(
+//program presents information as instructed. But I had to print the statement
+//in an odd way. When I called the getgrgid_r method, it made garbage of my usrn.pw_name variable
+//so I printed the name of the user before calling the getgrgid_r method.
+//Then I printed the the rest of the statement.
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <sys/types.h>
-#include <dirent.h>
+#include <dirent.h> 
 #include <sys/stat.h>
 #include <unistd.h>
 #include <pwd.h>
@@ -38,8 +43,6 @@ int main(int argc, char **argv)
 		if (!result) {
 			break;
 		}
-		if(d.d_name == '.');
-			printf("test.");
 
 		struct stat mystat;	/* must declare the struct itself, not just
 										a pointer to it, so the memory gets 
