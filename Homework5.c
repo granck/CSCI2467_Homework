@@ -58,7 +58,8 @@ strnlen(const char *str, size_t maxlen)
 	 *		the maxlen variable, pushing it closer to 0. If it reaches 0, the function has reached
 	 *		the maximum amount of characters it is allowed to read from the string.
 	 *
-	 *	The for loop does not perform any statements outside of these conditions.
+	 * The for loop does not contain any statements in it's body because they are not necessary.
+	 * All relevant calculations are performed in the for loop clauses.
 	 **/
 	for(cp = str; maxlen != 0 && *cp != '\0'; cp++, maxlen--)
 		;
